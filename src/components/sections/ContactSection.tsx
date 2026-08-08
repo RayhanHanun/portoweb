@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { brutalSpring } from "@/lib/utils";
 import TerminalCard from "@/components/ui/TerminalCard";
@@ -41,6 +42,53 @@ const inputClasses =
   "w-full bg-transparent border-b-[3px] border-neo-border focus:border-neo-green outline-none font-mono text-sm text-neo-white py-3 px-1 placeholder:text-neo-white/30 transition-colors duration-100";
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE",
+          ...formData,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        
+        // Reset status after 5 seconds so they can send another message if needed
+        setTimeout(() => {
+          setStatus("idle");
+        }, 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="px-6 md:px-8 lg:px-8 py-12 lg:py-20 max-w-7xl mx-auto">
       {/* Section header */}
@@ -59,7 +107,7 @@ export default function ContactSection() {
         >
           <TerminalCard headerTitle="TRANSMIT_MESSAGE.sh" accentColor="green">
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubmit}
               className="space-y-6 w-full max-w-full overflow-hidden px-2 md:px-0"
             >
               <div>
@@ -71,10 +119,14 @@ export default function ContactSection() {
                 </label>
                 <input
                   id="contact-name"
+                  name="name"
                   type="text"
                   placeholder="Enter your name..."
                   className={inputClasses}
                   required
+                  value={formData.name}
+                  onChange={handleChange}
+                  disabled={status === "loading"}
                 />
               </div>
 
@@ -87,10 +139,14 @@ export default function ContactSection() {
                 </label>
                 <input
                   id="contact-email"
+                  name="email"
                   type="email"
                   placeholder="Enter your email..."
                   className={inputClasses}
                   required
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={status === "loading"}
                 />
               </div>
 
@@ -103,9 +159,13 @@ export default function ContactSection() {
                 </label>
                 <input
                   id="contact-subject"
+                  name="subject"
                   type="text"
                   placeholder="Enter subject..."
                   className={inputClasses}
+                  value={formData.subject}
+                  onChange={handleChange}
+                  disabled={status === "loading"}
                 />
               </div>
 
@@ -118,22 +178,47 @@ export default function ContactSection() {
                 </label>
                 <textarea
                   id="contact-message"
+                  name="message"
                   rows={4}
                   placeholder="Enter your message..."
                   className={`${inputClasses} resize-none`}
                   required
+                  value={formData.message}
+                  onChange={handleChange}
+                  disabled={status === "loading"}
                 />
               </div>
 
               <motion.button
                 type="submit"
-                className="font-mono text-sm px-6 py-3 bg-neo-green text-black border-2 border-black shadow-brutal-green font-bold tracking-wider uppercase w-full"
-                whileHover={{ x: -4, y: -4 }}
-                whileTap={{ x: 4, y: 4, boxShadow: "0px 0px 0px 0px #000" }}
+                disabled={status === "loading"}
+                className="font-mono text-sm px-6 py-3 bg-neo-green text-black border-2 border-black shadow-brutal-green font-bold tracking-wider uppercase w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                whileHover={status === "loading" ? {} : { x: -4, y: -4 }}
+                whileTap={status === "loading" ? {} : { x: 4, y: 4, boxShadow: "0px 0px 0px 0px #000" }}
                 transition={brutalSpring}
               >
-                {">"} TRANSMIT_MESSAGE
+                {status === "loading" ? "> TRANSMITTING..." : "> TRANSMIT_MESSAGE"}
               </motion.button>
+              
+              {/* UI Feedback Message */}
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 border-2 border-neo-green bg-neo-green/10 text-neo-green font-mono text-xs text-center uppercase tracking-widest"
+                >
+                  [ TRANSMISSION SUCCESSFUL ]
+                </motion.div>
+              )}
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 border-2 border-neo-pink bg-neo-pink/10 text-neo-pink font-mono text-xs text-center uppercase tracking-widest"
+                >
+                  [ TRANSMISSION FAILED - TRY AGAIN ]
+                </motion.div>
+              )}
             </form>
           </TerminalCard>
         </motion.div>
