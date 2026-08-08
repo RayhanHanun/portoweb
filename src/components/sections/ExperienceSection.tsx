@@ -4,7 +4,7 @@ import { FadeUpContainer, FadeUpItem } from "@/components/ui/MotionWrapper";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="px-4 md:px-8 py-20 max-w-7xl mx-auto">
+    <section id="experience" className="px-6 md:px-8 lg:px-8 py-12 lg:py-20 max-w-7xl mx-auto">
       <div className="mb-8">
         <h2 className="font-mono text-neo-green text-sm">
           <span className="text-neo-pink">{'>'}</span> ls experience/
@@ -12,7 +12,7 @@ export default function ExperienceSection() {
       </div>
 
       <FadeUpContainer
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6"
       >
         {experienceData.map((exp) => (
           <FadeUpItem

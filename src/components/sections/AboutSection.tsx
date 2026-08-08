@@ -1,8 +1,6 @@
-import { brutalSpring } from "@/lib/utils";
 import TerminalCard from "@/components/ui/TerminalCard";
 import {
   academicData,
-  experienceData,
   techStack,
   focusAreas,
   softSkillsData,
@@ -11,7 +9,7 @@ import { FadeUpContainer, FadeUpItem } from "@/components/ui/MotionWrapper";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="px-4 md:px-8 py-20 max-w-7xl mx-auto">
+    <section id="about" className="px-6 md:px-8 lg:px-8 py-12 lg:py-20 max-w-7xl mx-auto">
       {/* Section header */}
       <div className="font-mono text-neo-green text-sm mb-8">
         <span className="text-neo-pink">{">"}</span> cat about.md
@@ -19,7 +17,7 @@ export default function AboutSection() {
 
       {/* ========== BENTO BOX — CSS Grid ONLY, NO Flexbox wrapper ========== */}
       <FadeUpContainer
-        className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6"
       >
         {/* ── Quote Block ── col-span full */}
         <FadeUpItem

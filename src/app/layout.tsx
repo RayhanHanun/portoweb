@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Code, Inter } from "next/font/google";
 import Navbar from "@/components/sections/Navbar";
 import CursorSpotlight from "@/components/ui/CursorSpotlight";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
 const firaCode = Fira_Code({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         {/* pt-16 offset for fixed navbar height, relative z-10 to stay above spotlight */}
         <main className="relative z-10 pt-16 flex-1">{children}</main>
+        <ScrollToTop />
       </body>
     </html>
   );

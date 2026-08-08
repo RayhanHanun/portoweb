@@ -28,7 +28,7 @@ interface TerminalCardProps {
 
 const accentMap: Record<
   AccentColor,
-  { border: string; shadow: string; headerBg: string; dot: string; hoverInvert: string; textClass: string }
+  { border: string; shadow: string; headerBg: string; dot: string; hoverInvert: string; textClass: string; buttonHoverText: string }
 > = {
   green: {
     border: "border-neo-green",
@@ -37,6 +37,7 @@ const accentMap: Record<
     dot: "bg-neo-green",
     hoverInvert: "hover:bg-neo-green hover:text-black hover:shadow-brutal-active",
     textClass: "text-neo-green",
+    buttonHoverText: "md:hover:!text-neo-green",
   },
   pink: {
     border: "border-neo-pink",
@@ -45,6 +46,7 @@ const accentMap: Record<
     dot: "bg-neo-pink",
     hoverInvert: "hover:bg-neo-pink hover:text-black hover:shadow-brutal-active",
     textClass: "text-neo-pink",
+    buttonHoverText: "md:hover:!text-neo-pink",
   },
   yellow: {
     border: "border-neo-yellow",
@@ -53,6 +55,7 @@ const accentMap: Record<
     dot: "bg-neo-yellow",
     hoverInvert: "hover:bg-neo-yellow hover:text-black hover:shadow-brutal-active",
     textClass: "text-neo-yellow",
+    buttonHoverText: "md:hover:!text-neo-yellow",
   },
   transparent: {
     border: "border-[#333333]",
@@ -61,6 +64,7 @@ const accentMap: Record<
     dot: "bg-neo-white",
     hoverInvert: "hover:bg-[#333333] hover:text-neo-white hover:shadow-brutal-active",
     textClass: "text-neo-white",
+    buttonHoverText: "md:hover:!text-neo-white",
   },
 };
 
@@ -170,7 +174,7 @@ export default function TerminalCard({
               "inline-block mt-4 font-mono text-xs px-4 py-2 border-[3px] font-bold tracking-wider uppercase bg-transparent transition-colors duration-75 ease-out md:group-hover:border-black md:group-hover:text-black md:hover:!bg-black",
               accent.border,
               accent.textClass,
-              `md:hover:!${accent.textClass}`
+              accent.buttonHoverText
             )}
             whileHover={{ x: -2, y: -2 }}
             whileTap={{ x: 2, y: 2 }}

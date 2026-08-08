@@ -42,7 +42,7 @@ const inputClasses =
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="px-4 md:px-8 py-20 max-w-7xl mx-auto">
+    <section id="contact" className="px-6 md:px-8 lg:px-8 py-12 lg:py-20 max-w-7xl mx-auto">
       {/* Section header */}
       <div className="font-mono text-neo-green text-sm mb-8">
         <span className="text-neo-pink">{">"}</span> open network_transmission.sh
