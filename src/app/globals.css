@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Color Palette - design.md tokens */
+  --color-neo-bg: #121212;
+  --color-neo-card: #1A1A1A;
+  --color-neo-border: #000000;
+  --color-neo-green: #00FF41;
+  --color-neo-pink: #FF77FF;
+  --color-neo-yellow: #F4E285;
+  --color-neo-white: #E5E5E5;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Brutalist Shadows - zero blur, static offsets */
+  --shadow-brutal-green: 4px 4px 0px 0px rgba(0, 255, 65, 0.8);
+  --shadow-brutal-pink: 4px 4px 0px 0px rgba(255, 119, 255, 0.8);
+  --shadow-brutal-yellow: 4px 4px 0px 0px rgba(244, 226, 133, 0.8);
+  --shadow-brutal-active: 0px 0px 0px 0px rgba(0, 0, 0, 1);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Font families via CSS variable injection from next/font */
+  --font-mono: var(--font-fira-code), monospace;
+  --font-sans: var(--font-inter), sans-serif;
+
+  /* Animations */
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-neo-bg);
+    color: var(--color-neo-white);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Dotted Grid Background - Neobrutalist Terminal Aesthetic */
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    background-position: 0 0;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar brutalist styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #121212;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00ff41;
+    border: 2px solid #000000;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    background: rgba(0, 255, 65, 0.3);
+    color: #e5e5e5;
+  }
 }
