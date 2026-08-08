@@ -3,13 +3,13 @@
 
 export const profileData = {
   name: "Rayhan Hanun",
-  role: "Fullstack Web Developer | Technology Innovation",
+  role: "Software Development | Technology Innovation",
   heroTypingSequence: [
     "> ACCESS GRANTED: RAYHAN HANUN // FULL-STACK ENGINEER",
     3000,
     "> INITIALIZING PORTFOLIO MODULES...",
     2000,
-    "> SYSTEMS ANALYSIS | AI APPLICATIONS | IoT/ROBOTICS",
+    "> [ FULLSTACK_DEV, IoT, SYSTEMS_ANALYSIS ]",
     3000,
   ] as const,
 } as const;
