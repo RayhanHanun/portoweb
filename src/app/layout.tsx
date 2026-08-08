@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Rayhan Hanun | Fullstack Developer & Systems Analyst",
   description:
     "Portfolio of Rayhan Hanun — Full-Stack Developer specializing in AI Applications, Systems Analysis, and IoT/Robotics.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
