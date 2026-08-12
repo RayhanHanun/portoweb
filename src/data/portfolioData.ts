@@ -104,7 +104,7 @@ export const projectsData = [
     accent: "pink" as const,
     link: "https://rentngo.my.id",
   }
-] as const;
+];
 
 export const achievementsData = [
   {
@@ -131,4 +131,4 @@ export const achievementsData = [
     image: "/achievements/amicta-2026-v4.webp",
     accent: "yellow" as const,
   },
-] as const;
+];
