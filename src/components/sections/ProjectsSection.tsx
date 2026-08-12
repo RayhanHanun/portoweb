@@ -20,7 +20,7 @@ export default function ProjectsSection() {
             key={project.title}
           >
             <TerminalCard
-              headerTitle={`${project.title.toUpperCase().replace(/\s+/g, "_")}.exe`}
+              headerTitle={`${(project.shortTitle || project.title).toUpperCase().replace(/\s+/g, "_")}.exe`}
               accentColor={project.accent}
               isInteractive={true}
               contentTitle={project.title}

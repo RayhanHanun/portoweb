@@ -62,7 +62,7 @@ export default function AboutSection() {
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="font-mono text-xs px-3 py-1.5 border-2 border-neo-green text-neo-green text-center group-hover:border-black group-hover:text-black transition-colors duration-200"
+                  className="font-mono text-xs px-3 py-2 border-2 border-neo-green text-neo-green text-center flex items-center justify-center group-hover:border-black group-hover:text-black transition-colors duration-200 w-full h-full"
                 >
                   {tech}
                 </span>
@@ -80,7 +80,7 @@ export default function AboutSection() {
               {softSkillsData.map((skill) => (
                 <span
                   key={skill}
-                  className="col-span-1 font-mono text-xs px-3 py-1.5 border-2 border-neo-pink text-neo-pink text-center group-hover:border-black group-hover:text-black transition-colors duration-200 w-full"
+                  className="col-span-1 font-mono text-xs px-3 py-2 border-2 border-neo-pink text-neo-pink text-center flex items-center justify-center group-hover:border-black group-hover:text-black transition-colors duration-200 w-full h-full"
                 >
                   {skill}
                 </span>
@@ -98,9 +98,9 @@ export default function AboutSection() {
               {focusAreas.map((area) => (
                 <div
                   key={area}
-                  className="font-mono text-xs md:text-sm px-4 py-3 border-2 border-neo-yellow text-neo-yellow text-center group-hover:border-black group-hover:text-black transition-colors duration-200"
+                  className="font-mono text-xs md:text-sm px-4 py-3 border-2 border-neo-yellow text-neo-yellow text-center flex items-center justify-center group-hover:border-black group-hover:text-black transition-colors duration-200 h-full"
                 >
-                  {"> "}{area}
+                  {area}
                 </div>
               ))}
             </div>

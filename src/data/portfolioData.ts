@@ -88,6 +88,7 @@ export const softSkillsData = [
 export const projectsData = [
   {
     title: "BINA BUMI SIGMA Plastic Gathering Machine",
+    shortTitle: "SIGMA",
     desc: "Led technical direction and product concept development as CTO. Engineered an IoT-based robotic machine focused on practical environmental solutions, handling end-to-end hardware architecture and system planning.",
     tags: ["IoT", "Robotics", "Systems Analysis"],
     image: "/projects/sigma.png",
@@ -96,9 +97,10 @@ export const projectsData = [
   },
   {
     title: "Rent & Go Car Rental Platform",
+    shortTitle: "RENT_AND_GO",
     desc: "Developed a comprehensive full-stack commercial platform for premium car rentals. Engineered a scalable architecture to handle dynamic fleet catalogs, transparent pricing systems, and streamlined booking workflows.",
     tags: ["React", "Laravel", "MySQL", "Tailwind CSS"],
-    image: "/projects/rentngo.png",
+    image: "/projects/rentngo-v2.webp",
     accent: "pink" as const,
     link: "https://rentngo.my.id",
   }
@@ -106,8 +108,9 @@ export const projectsData = [
 
 export const achievementsData = [
   {
-    title: "Runner-up NextGen Sciences Techpreneur Battle 2025",
+    title: "Runner-up NextGen Sciences Techpreneur Battle (NSTB) 2025",
     issuer: "NextGen Sciences Techpreneur Battle 2025",
+    shortTitle: "NSTB_2025",
     desc: "Contributed to technical concept development and pitched a technology-based solution to the judging panel.",
     image: "/achievements/nextgen-2025.jpg",
     accent: "green" as const,
@@ -115,6 +118,7 @@ export const achievementsData = [
   {
     title: "Merit Winner Amikom ICT Award (AMICTA) 2025",
     issuer: "AMICTA 2025",
+    shortTitle: "AMICTA_2025",
     desc: "Awarded as Merit Winner in the Digital Business category for developing an innovative digital business solution.",
     image: "/achievements/amicta-2025.jpeg",
     accent: "pink" as const,
@@ -122,8 +126,9 @@ export const achievementsData = [
   {
     title: "3rd Place Amikom ICT Award (AMICTA) 2026",
     issuer: "AMICTA 2026",
+    shortTitle: "AMICTA_2026",
     desc: "Secured 3rd place in the Information System Application category for developing an innovative platform.",
-    image: "/achievements/amicta-2026-final.jpg",
+    image: "/achievements/amicta-2026-v4.webp",
     accent: "yellow" as const,
   },
 ] as const;

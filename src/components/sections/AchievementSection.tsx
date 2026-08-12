@@ -19,7 +19,7 @@ export default function AchievementSection() {
             key={item.title}
           >
             <TerminalCard
-              headerTitle={`CERT_${item.issuer.toUpperCase().replace(/\s+/g, "_")}.log`}
+              headerTitle={`CERT_${(item.shortTitle || item.issuer).toUpperCase().replace(/\s+/g, "_")}.log`}
               accentColor={item.accent}
               isInteractive={true}
               contentTitle={item.title}
