@@ -112,7 +112,7 @@ export const achievementsData = [
     issuer: "NextGen Sciences Techpreneur Battle 2025",
     shortTitle: "NSTB_2025",
     desc: "Contributed to technical concept development and pitched a technology-based solution to the judging panel.",
-    image: "/achievements/nextgen-2025.jpg",
+    image: "/achievements/nextgen-2025-v2.webp",
     accent: "green" as const,
   },
   {
@@ -120,7 +120,7 @@ export const achievementsData = [
     issuer: "AMICTA 2025",
     shortTitle: "AMICTA_2025",
     desc: "Awarded as Merit Winner in the Digital Business category for developing an innovative digital business solution.",
-    image: "/achievements/amicta-2025.jpeg",
+    image: "/achievements/amicta-2025-v2.webp",
     accent: "pink" as const,
   },
   {
