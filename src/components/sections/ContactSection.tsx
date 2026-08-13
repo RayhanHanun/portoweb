@@ -255,10 +255,6 @@ export default function ContactSection() {
         </motion.div>
       </div>
 
-      {/* Footer stamp */}
-      <div className="mt-16 text-center font-mono text-xs text-neo-green/60">
-        user@portfolio:~$ SYSTEM_ONLINE // SECURE_BUILD // {new Date().getFullYear()}
-      </div>
     </section>
   );
 }

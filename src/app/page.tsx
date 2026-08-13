@@ -16,6 +16,11 @@ export default function Home() {
       <AchievementSection />
       <ContactSection />
       <AITerminal />
+      
+      {/* Footer stamp */}
+      <footer className="pb-12 text-center font-mono text-xs text-neo-green/60">
+        user@portfolio:~$ SYSTEM_ONLINE // SECURE_BUILD // {new Date().getFullYear()}
+      </footer>
     </>
   );
 }
