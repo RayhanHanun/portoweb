@@ -176,12 +176,12 @@ export default function AITerminal() {
             placeholder="Ask about Rayhan..."
             disabled={isLoading}
             aria-label="Ask AI Assistant"
-            className="flex-1 bg-black text-neo-white font-mono text-base md:text-sm px-2 py-4 outline-none placeholder:text-neo-white/20 disabled:opacity-50"
+            className="flex-1 min-w-0 bg-black text-neo-white font-mono text-base md:text-sm px-2 py-4 outline-none placeholder:text-neo-white/20 disabled:opacity-50"
           />
           <motion.button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="font-mono text-sm px-6 py-4 bg-neo-green text-black font-bold tracking-wider uppercase border-l-2 border-black disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white transition-colors duration-100"
+            className="shrink-0 font-mono text-xs md:text-sm px-4 md:px-6 py-4 bg-neo-green text-black font-bold tracking-wider uppercase border-l-2 border-black disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white transition-colors duration-100"
             whileHover={
               isLoading || !input.trim() ? {} : { x: -2, y: -2 }
             }
