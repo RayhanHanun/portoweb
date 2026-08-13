@@ -4,6 +4,7 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import AchievementSection from "@/components/sections/AchievementSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import AITerminal from "@/components/AITerminal";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ProjectsSection />
       <AchievementSection />
       <ContactSection />
+      <AITerminal />
     </>
   );
 }
