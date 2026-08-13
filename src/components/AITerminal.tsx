@@ -176,7 +176,7 @@ export default function AITerminal() {
             placeholder="Ask about Rayhan..."
             disabled={isLoading}
             aria-label="Ask AI Assistant"
-            className="flex-1 bg-black text-neo-white font-mono text-sm px-2 py-4 outline-none placeholder:text-neo-white/20 disabled:opacity-50"
+            className="flex-1 bg-black text-neo-white font-mono text-base md:text-sm px-2 py-4 outline-none placeholder:text-neo-white/20 disabled:opacity-50"
           />
           <motion.button
             type="submit"
